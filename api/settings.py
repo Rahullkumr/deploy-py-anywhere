@@ -1,5 +1,4 @@
 from pathlib import Path
-from os import getenv
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -7,11 +6,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ne912x8b347-(16q&1rj^^sfyk(5j_+d7e!mn6!(ahjt7olwrr'
-
-# Load environment variables from .env
-# load_dotenv(BASE_DIR / '.env')
-# ALLOWED_HOSTS = getenv('ALLOWED_HOSTS', '127.0.0.1').split(',')
-# DEBUG = getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ["*"]
 DEBUG = False
