@@ -1,15 +1,15 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "myproject/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+  "outputDirectory": "static/",
+  "buildCommand": "python3 manage.py collectstatic --noinput",
+  "functions": {
+    "myproject/wsgi.py": {
+      "maxDuration": 15
     }
-  ],
+  },
   "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/(.*)", "dest": "myproject/wsgi.py" }
-  ],
-  "outputDirectory": "staticfiles"
+    {
+      "src": "/(.*)",
+      "dest": "myproject/wsgi.py"
+    }
+  ]
 }
