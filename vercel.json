@@ -13,7 +13,8 @@
     }
   ],
   "routes": [
-    { "source": "/static/:path*", "destination": "/static/:path*" },
-    { "source": "/:any*", "destination": "myproject/wsgi.py" }
-  ]
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "myproject/wsgi.py" }
+  ],
+  "outputDirectory": "staticfiles"
 }
