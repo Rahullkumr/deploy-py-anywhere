@@ -2,14 +2,14 @@
   "outputDirectory": "static/",
   "buildCommand": "python3 manage.py collectstatic --noinput",
   "functions": {
-    "myproject/wsgi.py": {
+    "api/wsgi.py": {
       "maxDuration": 15
     }
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "myproject/wsgi.py"
+      "dest": "api/wsgi.py"
     }
   ]
 }
