@@ -1,12 +1,12 @@
 from pathlib import Path
-import os
+from os import getenv
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ne912x8b347-(16q&1rj^^sfyk(5j_+d7e!mn6!(ahjt7olwrr'
+# SECRET_KEY = 'django-insecure-ne912x8b347-(16q&1rj^^sfyk(5j_+d7e!mn6!(ahjt7olwrr'
 
 # Load environment variables from .env
 load_dotenv(BASE_DIR / '.env')
@@ -38,7 +38,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'myproject.urls'
+ROOT_URLCONF = 'api.urls'
 
 TEMPLATES = [
     {
@@ -55,7 +55,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = 'api.wsgi.app'
 
 
 # Database
