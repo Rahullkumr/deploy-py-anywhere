@@ -1,14 +1,10 @@
-# deploy-py-anywhere
+# Django deployment
 
-testing deployment to a good hosting website.
+Learning to deploy a django project to a hosting website.
 
-- railway
-    - only one month 
+## See Demo
+> > Explore the project live at: [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://dj-deploy-green.vercel.app/)
 
-- pythonanywhere
-    - problem with static files
+## Learnings of vercel
 
-- vercel
-    - trying now
-
- [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://dj-deploy-green.vercel.app/)
+- The name of configuration folder must be `api`
