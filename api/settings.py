@@ -8,6 +8,7 @@ SECRET_KEY = 'django-insecure-ne912x8b347-(16q&1rj^^sfyk(5j_+d7e!mn6!(ahjt7olwrr
 
 ALLOWED_HOSTS = ["*"]
 DEBUG = False
+# DEBUG = True
 
 # Application definition
 
@@ -55,15 +56,18 @@ WSGI_APPLICATION = 'api.wsgi.app'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+# DATABASES = {}  # No database as of now
 
-DATABASES = {}  # No database as of now
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'studentdb',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -105,7 +109,6 @@ else:
 
 # Add your local static file directories here
 STATICFILES_DIRS = [
-    # This allows Django to look for static files in the 'static' directory
     BASE_DIR / "dev_static",
 ]
 
