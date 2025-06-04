@@ -8,6 +8,16 @@
 - The name of configuration folder must be `api` 
 ```
 
+## 🤔 Why I Built This
+
+- I created this project to learn how to:
+
+    - Deploy Django apps using **Vercel**
+    - Connect to serverless databases like **Neon**
+    - Work with environment variables and manage secrets
+    - Use **WhiteNoise** for serving static files in production
+
+
 ## ⚙️ Features
 
 - Django-based web app
