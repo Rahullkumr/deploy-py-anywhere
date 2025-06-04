@@ -1,6 +1,6 @@
 {
   "outputDirectory": "static/",
-  "buildCommand": "python3 manage.py collectstatic --noinput",
+  "buildCommand": "python3 manage.py migrate && python3 manage.py collectstatic --noinput",
   "functions": {
     "api/wsgi.py": {
       "maxDuration": 15

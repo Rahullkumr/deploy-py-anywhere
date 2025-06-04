@@ -1,14 +1,16 @@
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ne912x8b347-(16q&1rj^^sfyk(5j_+d7e!mn6!(ahjt7olwrr'
+# SECRET_KEY = 'django-insecure-ne912x8deletemeb347-(16q&1rj^^sfyk(5j_+d7e!mn6!(ahjt7olwrr'
+
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-DEBUG = False
-# DEBUG = True
 
 # Application definition
 
@@ -58,16 +60,28 @@ WSGI_APPLICATION = 'api.wsgi.app'
 
 # DATABASES = {}  # No database as of now
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'studentdb',
+#         'USER': 'postgres',
+#         'PASSWORD': ----,
+#         'HOST': 'localhost',
+#         'PORT': '5432'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'studentdb',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', default='5432'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
