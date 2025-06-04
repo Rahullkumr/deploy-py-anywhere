@@ -1,5 +1,7 @@
 from pathlib import Path
-from decouple import config
+from os import getenv
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -7,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-ne912x8deletemeb347-(16q&1rj^^sfyk(5j_+d7e!mn6!(ahjt7olwrr'
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = getenv('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
@@ -71,14 +73,19 @@ WSGI_APPLICATION = 'api.wsgi.app'
 #     }
 # }
 
+# Neon's postgresql db
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT', default='5432'),
+        'NAME': getenv('PGDATABASE'),
+        'USER': getenv('PGUSER'),
+        'PASSWORD': getenv('PGPASSWORD'),
+        'HOST': getenv('PGHOST'),
+        'PORT': getenv('PGPORT', 5432),
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+        'DISABLE_SERVER_SIDE_CURSORS': True,
     }
 }
 
